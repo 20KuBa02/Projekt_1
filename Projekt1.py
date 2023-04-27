@@ -1,8 +1,65 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Apr 27 12:18:48 2023
+from math import sin, cos, sqrt, atan, atan2, degrees, radians
+import numpy as np
 
-@author: kubat
-"""
+class Transformacje:
+    def __init__(self, model: str = "wgs84"):
+        """
+        Parametry elipsoid:
+            a - duża półoś elipsoidy - promień równikowy
+            b - mała półoś elipsoidy - promień południkowy
+            flat - spłaszczenie
+            ecc2 - mimośród^2
+        + WGS84: https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84
+        + Inne powierzchnie odniesienia: https://en.wikibooks.org/wiki/PROJ.4#Spheroid
+        + Parametry planet: https://nssdc.gsfc.nasa.gov/planetary/factsheet/index.html
+        """
+        if model == "wgs84":
+            self.a = 6378137.0 
+            self.b = 6356752.31424518 
+        elif model == "grs80":
+            self.a = 6378137.0
+            self.b = 6356752.31414036
+        elif model == "mars":
+            self.a = 3396900.0
+            self.b = 3376097.80585952
+        else:
+            raise NotImplementedError(f"{model} model not implemented")
+        self.flat = (self.a - self.b) / self.a
+        self.e = sqrt(2 * self.flat - self.flat ** 2) 
+        self.e2 = (2 * self.flat - self.flat ** 2) 
+        
+        
+    def Np(self,fi):
+        N = self.a / np.sqrt(1 - self.e2 * np.sin(fi)**2)
+        return(N)
 
-hyhyhuju
+    def xyz2flh(self,X,Y,Z):
+        p = np.sqrt(X**2 + Y**2)
+        f = np.arctan(Z/p * (1-self.e2))
+        while True:
+            N = Transformacje.Np(self,f)
+            h= ( p / np.cos(f)) - N
+            fp = f
+            f=np.arctan(Z/(p*(1-self.e2 * N / (N+h))))
+            if abs(fp-f)<(0.000001/206265):
+                break
+        l=np.arctan2(Y,X)
+        return(f,l,h) 
+   
+    def flh2XYZ(self,fi,la,h):
+        N = Transformacje.Np(self,fi)
+        X = (N + h) * np.cos(fi) * np.cos(la)
+        Y = (N + h) * np.cos(fi) * np.sin(la)
+        Z =(N*(1-self.e2)+h) * np.sin(fi) 
+        return(X,Y,Z)
+   
+    
+
+geo = Transformacje(model = "wgs84")
+# dane XYZ geocentryczne
+X = 3664940.500; Y = 1409153.590; Z = 5009571.170
+phi, lam, h = geo.xyz2flh(X, Y, Z)
+print(phi, lam, h)
+
+
+
