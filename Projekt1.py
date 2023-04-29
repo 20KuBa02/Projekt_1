@@ -52,14 +52,23 @@ class Transformacje:
         Y = (N + h) * np.cos(fi) * np.sin(la)
         Z =(N*(1-self.e2)+h) * np.sin(fi) 
         return(X,Y,Z)
-   
     
+    def xyz2neu(self,X0,Y0,Z0,X,Y,Z):
+        fi,la,ha = Transformacje.xyz2flh(self, X0, Y0, Z0)
+        R = np.array([[-np.sin(radians(la)) , -np.sin(radians(fi)) * np.cos(radians(la)) , np.cos(radians(fi)) * np.cos(radians(la))],
+             [np.cos(radians(fi))  , -np.sin(radians(fi)) * np.sin(radians(la)) , np.cos(radians(fi)) * np.sin(radians(la))],
+             [0 , np.cos(fi) , np.sin(fi)]])
+        XYZT = np.array([[X - X0],
+                         [Y - Y0],
+                         [Z - Z0]])
+        ENU = R.transpose() @ XYZT
+        return (ENU[0][0],ENU[1][0],ENU[2][0])
 
 geo = Transformacje(model = "wgs84")
 # dane XYZ geocentryczne
 X = 3664940.500; Y = 1409153.590; Z = 5009571.170
 phi, lam, h = geo.xyz2flh(X, Y, Z)
 print(phi, lam, h)
-
-
+E,N,U = geo.xyz2neu(X,Y,Z,(X + 1000),(Y + 2000),(Z + 3000))
+print(E,N,U)
 
