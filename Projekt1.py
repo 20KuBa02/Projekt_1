@@ -54,14 +54,16 @@ class Transformacje:
         N : float
             [metry] - największy promień krzywizny
         """
-        if jedn == 'rad':
+        phi = float(flh[0])
+        if jedn == "rad":
             pass
-        elif jedn == 'dec':
-            flh = [float(np.radians(flh[0])),float(np.radians(flh[1])),float(flh[2])]
-        elif jedn == 'gra':
-            flh = [float(flh[0]*m.pi/200), float(flh[1]*m.pi/200), float(flh[2])]
+        elif jedn == "dec":
+            phi = np.degrees(phi)
+        elif jedn == "gra":
+            flh = phi*m.pi/200
         else:
             raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
+            
         N = self.a / np.sqrt(1 - self.e2 * np.sin(flh[0])**2)
         return(N)
 
@@ -93,29 +95,29 @@ class Transformacje:
         h : float
             [metry] - wysokość geometryczna(elipsoidalna)
         """
-        X = xyz[0]
-        Y = xyz[1]
-        Z = xyz[2]
-        p = np.sqrt(X**2 + Y**2)
-        f = np.arctan(Z/p * (1-self.e2))
-        while True:
-            N = Transformacje.Np(self, [f] ,'rad')
-            h= ( p / np.cos(f)) - N
-            fp = f
-            f=np.arctan(Z/(p*(1-self.e2 * N / (N+h))))
-            if abs(fp-f)<(0.000001/206265):
-                break
-        l=np.arctan2(Y,X)
-        flh = [f,l,h]
+        r = np.sqrt(xyz[0]**2 + xyz[1]**2)
+        phi_prv = m.atan(xyz[2] / (r * (1 - self.e2)))
+        phi = 0
+        while abs(phi_prv - phi) > 0.000001/206265:    
+            phi_prv = phi
+            N = self.a / np.sqrt(1 - self.e2 * np.sin(phi_prv)**2)
+            h = r / np.cos(phi_prv) - N
+            phi = m.atan((xyz[2]/r) * (((1 - self.e2 * N/(N + h))**(-1))))
+        l = m.atan(xyz[1]/xyz[0])
+        N = self.a / np.sqrt(1 - self.e2 * (np.sin(phi))**2);
+        h = r / np.cos(phi) - N
+        flh= [phi, l,h]
+        
         if jedn == 'rad':
             pass
         elif jedn == 'dec':
-            flh = [float(np.degrees(f)),float(np.degrees(l)),float(h)]
+            flh = [float(np.degrees(flh[0])),float(np.degrees(flh[1])),float(flh[2])]
         elif jedn == 'gra':
-            flh = [float(f*200/m.pi), float(l*200/m.pi), float(h)]
+            flh = [float(flh[0]*200/m.pi), float(flh[1]*200/m.pi), float(flh[2])]
         else:
             raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
-        return (flh) 
+            
+        return (flh)
    
     def flh2XYZ(self, flh, jedn = 'dec'):
         """
@@ -148,12 +150,15 @@ class Transformacje:
             flh = [float(flh[0]*m.pi/200), float(flh[1]*m.pi/200), float(flh[2])]
         else:
             raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
-        N = Transformacje.Np(self,flh[0])
-        X = (N + flh[2]) * np.cos(flh[0]) * np.cos(flh[1])
-        Y = (N + flh[2]) * np.cos(flh[0]) * np.sin(flh[1])
-        Z =(N*(1-self.e2)+flh[2]) * np.sin(flh[0]) 
+            
+        N = self.Np(flh, 'rad')
+        X = (N + flh[2])*np.cos(flh[0])*np.cos(flh[1])
+        Y = (N + flh[2])*np.cos(flh[0])*np.sin(flh[1])
+        Z = (N*(1-self.e2) + flh[2])*np.sin(flh[0])
+        
         xyz = [round(X,3),round(Y,3),round(Z,3)]
-        return(xyz)
+        
+        return xyz
     
     def xyz2neu(self, xyz0, xyz, jedn = 'dec'):
         """
@@ -230,11 +235,22 @@ class Transformacje:
         else:
             raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
         
-        A0 = 1 - (self.e2 / 4) - (3 * self.e2**2 / 64) - (5 * self.e2**3 / 256)
-        A2 = (3/8) * (self.e2 + self.e2**2 / 4 + 15 * self.e2**3 / 128)
-        A4 = (15/256) * (self.e2**2 + (3 * self.e2**3 / 4))
-        A6 = 35 * self.e2**3 / 3072
-        sigma = self.a * (A0 * flh[0] - A2 * np.sin(2 * flh[0]) + A4 * np.sin(4 * flh[0]) - A6 * np.sin(6 * flh[0]))
+        phi = float(flh[0])
+        
+        if jedn == "rad":
+            pass
+        elif jedn == "dec":
+            phi = np.radians(phi)
+        elif jedn == "gra":
+            flh = phi*m.pi/200
+        else:
+            raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
+        
+        A0 = 1-(self.e2/4)-(3/64)*(self.e2**2)-(5/256)*(self.e2**3);
+        A2 = (3/8)*(self.e2 + (self.e2**2)/4 + (15/128)*(self.e2**3));
+        A4 = (15/256)*(self.e2**2 + 3/4*(self.e2**3));
+        A6 = (35/3072)*self.e2**3;
+        sigma = self.a*(A0*phi - A2*np.sin(2*phi) + A4*np.sin(4*phi) - A6*np.sin(6*phi));
         return(sigma)
     
     def XgkYgk(self, flh, l0, jedn = 'dec'):
@@ -273,18 +289,31 @@ class Transformacje:
         else:
             raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
         
-        l0 = radians(l0)
-        b2 = (self.a**2) * (1 - self.e2) 
-        ep2 = (self.a**2 - b2)
-        dl = flh[1] - l0
-        t = np.tan(flh[0])
-        n2 = ep2 * (np.cos(flh[0]))**2 
-        N = Transformacje.Np(self,flh[0])
-        sigma0 = Transformacje.sigma(self,flh[0])
-        Xgk = sigma0 + (dl**2 / 2) * N * np.sin(flh[0]) * np.cos(flh[0]) * (1 + (dl**2 / 12) * (np.cos(flh[0]))**2 * (5 - t**2 + 9 * n2 + 4 * n2**2) + (dl**4 / 360) * (np.cos(flh[0]))**4 * (61 - 58 * t**2 + t**4 + 270 * n2 - 330 * n2 * t**2))
-        Ygk = dl * N * np.cos(flh[0]) * (1 + (dl**2 / 6) * (np.cos(flh[0]))**2 * (1 - t**2 + n2) + (dl**4 / 120) * (np.cos(flh[0]))**4 * (5 - 18 * t**2 + t**4 + 14 * n2 - 58 * n2 * t**2))
-        xygk = [Xgk, Ygk]
-        return(xygk)
+        if jedn == 'rad':
+            pass
+        elif jedn == 'dec':
+            flh = [float(np.radians(flh[0])),float(np.radians(flh[1])),float(flh[2])]
+        elif jedn == 'gra':
+            flh = [float(flh[0]*200/m.pi), float(flh[1]*200/m.pi), float(flh[2])]
+        else:
+            raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
+       
+        l0 = np.radians(l0)
+       
+        b2 = (self.a**2)*(1-self.e2);
+        ep2 = (self.a**2-b2)/b2;
+        t = np.tan(flh[0]);
+        n2 = ep2*(np.cos(flh[0])**2);
+        N = self.Np(flh, 'rad');
+        si = self.sigma(flh,'rad');
+        dL = flh[1] - l0;
+       
+        Xgk = si + (dL**2/2)*N*np.sin(flh[0])*np.cos(flh[0])*(1 + (dL**2/12)*np.cos(flh[0])**2*(5 - t**2 + 9*n2 + 4*n2**2) + (dL**4/360)*np.cos(flh[0])**4*(61 - 58*t**2 + t**4 + 14*n2 - 58*n2*t**2));
+        Ygk = dL*N*np.cos(flh[0])*(1 + (dL**2/6)*np.cos(flh[0])**2*(1 - t**2 + n2) + (dL**4/120)*np.cos(flh[0])**4*(5 - 18*t**2 + t**4 + 14*n2 - 58*n2*t**2));
+       
+        xygk = [Xgk,Ygk]
+
+        return xygk
 
     def XY2000(self, flh, l0, jedn = 'dec'):
         """
@@ -314,15 +343,15 @@ class Transformacje:
         """
         
         if jedn == 'rad':
-            pass
+            flh = [float(np.degrees(flh[0])),float(np.degrees(flh[1])),float(flh[2])]
         elif jedn == 'dec':
-            flh = [float(np.radians(flh[0])),float(np.radians(flh[1])),float(flh[2])]
+            pass
         elif jedn == 'gra':
-            flh = [float(flh[0]*m.pi/200), float(flh[1]*m.pi/200), float(flh[2])]
+            flh = [float(flh[0]*9/10), float(flh[1]*9/10), float(flh[2])]
         else:
             raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
        
-        xygk = Transformacje.XgkYgk(self, flh, l0)
+        xygk = self.XgkYgk(flh, l0, 'dec')
         X2000 = xygk[0] * 0.999923 
         Y2000 = xygk[1] * 0.999923 + l0/3 * 1000000 + 500000
         xy2000 = [X2000,Y2000]
@@ -353,16 +382,16 @@ class Transformacje:
         xy1992 : LIST
             Wspolrzedne w układzie PL-1992 [metry]
         """
-        if jedn == 'rad':
+        if jedn == "rad":
+            flh = [np.radians(flh[0:2]),flh[2]]
+        elif jedn == "dec":
             pass
-        elif jedn == 'dec':
-            flh = [float(np.radians(flh[0])),float(np.radians(flh[1])),float(flh[2])]
-        elif jedn == 'gra':
-            flh = [float(flh[0]*m.pi/200), float(flh[1]*m.pi/200), float(flh[2])]
+        elif jedn == "gra":
+            flh = [flh[0:2]*9/10,flh[2]]
         else:
             raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
-       
-        xygk = Transformacje.XgkYgk(self, flh, 19)
+        
+        xygk = self.XgkYgk(flh, 19, 'dec')
         X1992 = xygk[0] * 0.9993 - 5300000
         Y1992 = xygk[1] * 0.9993 + 500000
         xy1992 = [X1992,Y1992]
@@ -381,3 +410,6 @@ print(neu)
 l0 = 21
 xy00 = geo.XY2000(flh, l0, jedn = 'dec')
 print(xy00)
+
+xy92 = geo.XY1992(flh,jedn = 'dec')
+print(xy92)
