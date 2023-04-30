@@ -12,7 +12,29 @@ def czytanie_txt(xyz0 , l0 ,model = 'nazwa modelu', plik = 'nazwa pliku', funkcj
     3664940.520 1409153.590 5009571.170
     3664940.514 1409153.584 5009571.166    
     
-    A następnie przelicza do układu który poda użytkownik
+    A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest
+    to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy 
+    wpisać losowe warto
+    
+    Parameters
+    ----------
+    flh : LIST
+        wspolrzedne geodezyjne phi, lam, h [metry]
+    l0 : int
+        [stopnie dziesiętne] - południk osiowy
+    jedn : STR, optional
+        Jednostka wspolrzednych geodezyjnych. Domyslna jest "dec".
+        ["rad" - radiany, "gra" - grady, "dec" - stopnie]
+
+    Raises
+    ------
+    NotImplementedError
+        Jezeli podana jednostka jest poza zbiorem.
+
+    Returns
+    -------
+    xy2000 : LIST
+        Wspolrzedne w układzie PL-2000 [metry]
     """
     geo = Transformacje(model)
     
