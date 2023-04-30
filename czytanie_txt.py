@@ -14,27 +14,27 @@ def czytanie_txt(xyz0 , l0 ,model = 'nazwa modelu', plik = 'nazwa pliku', funkcj
     
     A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest
     to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy 
-    wpisać losowe warto
+    wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.
     
     Parameters
     ----------
-    flh : LIST
-        wspolrzedne geodezyjne phi, lam, h [metry]
+    
+    xyz0 : [list]
+        [metry] - współrzędne punktu w układzie orto-kartezjańskim
     l0 : int
         [stopnie dziesiętne] - południk osiowy
     jedn : STR, optional
         Jednostka wspolrzednych geodezyjnych. Domyslna jest "dec".
         ["rad" - radiany, "gra" - grady, "dec" - stopnie]
-
-    Raises
-    ------
-    NotImplementedError
-        Jezeli podana jednostka jest poza zbiorem.
-
+    model : 'nazwa modelu'
+        Model elipsoidy.
+    plik : 'nazwa pliku'
+        Nazwa pliku o rozszerzeniu txt który wczytujemy.
+    funkcja = 'nazwa funkcji',
+        Nazwa funkcji według której chcemy przeliczyć współrzędne między układami.
     Returns
     -------
-    xy2000 : LIST
-        Wspolrzedne w układzie PL-2000 [metry]
+    plik o rozszerzeniu txt z przliczonymi współrzędnymi
     """
     geo = Transformacje(model)
     
@@ -86,3 +86,7 @@ def czytanie_txt(xyz0 , l0 ,model = 'nazwa modelu', plik = 'nazwa pliku', funkcj
         plik_w.write(f'''{i}\n''')
     plik_w.close()
     
+    
+    
+    
+czytanie_txt([0,0,0], 0, 'wgs84' , 'wsp_inp.txt', 'xyz2flh' , 'dec', 'nazwa_pliku_wychodzącego')
