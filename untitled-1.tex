@@ -1,0 +1,133 @@
+\documentclass[a4paper, 12p] {article}
+\usepackage{graphicx}      % umożliwia wstawianie obrazów i grafik
+\usepackage{amsmath}       % rozszerza możliwości edycji wzorów matematycznych
+\usepackage{amsfonts}      % zapewnia dostęp do matematycznych symboli i alfabetów
+\usepackage{amssymb}       % zawiera dodatkowe matematyczne symbole
+\usepackage{geometry}      % umożliwia ustawianie marginesów i rozmiaru strony
+\usepackage{float}         % umożliwia precyzyjne ustawianie pozycji obiektów np. figur i tabel
+\usepackage{hyperref}      % tworzy odnośniki w dokumencie
+\usepackage{color}         % umożliwia definiowanie i używanie kolorów
+\usepackage{listings}      % umożliwia wstawianie kodu źródłowego z różnych języków programowania
+\usepackage{booktabs}      % umożliwia tworzenie tabel z różnymi kolorami i grubością linii pomiędzy wierszami
+\usepackage{caption}       % umożliwia kontrolowanie sposobu formatowania podpisów pod rysunkami i tabelami
+\usepackage{subcaption}    % umożliwia tworzenie podobrazów i sub-tabel
+\usepackage{siunitx}       % umożliwia formatowanie jednostek miar i wartości numerycznych
+\usepackage{babel}         % dostarcza automatycznego tłumaczenia słów kluczowych w zależności od języka dokumentu
+\usepackage{natbib}        % umożliwia bibliografie w stylu 'autor-data'
+\usepackage{fancyhdr}      % umożliwia dodawanie nagłówków i stopk z dowolnym tekstem
+\usepackage{datetime}      % umożliwia formatowanie daty i czasu
+\usepackage{tikz}          % umożliwia rysowanie grafik wektorowych i schematów w LaTeXie
+\usepackage{pgfplots}      % umożliwia tworzenie wykresów funkcji matematycznych w LaTeXie
+\usepackage{tocloft}
+\usepackage{polski}
+\usepackage{graphicx}      % Required for inserting images
+\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+\usepackage{svg}
+\usepackage{listings}
+\usepackage{hyperref}
+\usepackage{attachfile}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{multirow}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% start
+\begin{document}
+
+% strona tytułowa
+\begin{center} 
+\rule{\textwidth}{1.0pt} \\
+\vspace{0.5cm}
+    \includegraphics[width=.6\linewidth]{GIK/logo_WGiK.png}
+\vspace{0.2cm} \\
+	\huge \textsc{Transformacje}
+\vspace{1.0cm} \\  
+	\Large \textsc{Informatyka Geodezyjna II, Rok 2022/2023 \\ grupa 2, Projekt 1}
+\vspace{0.4cm}\\
+	\textsc{Jakub Tokarski 319392 ; Aleksandra Ślwińska 319389} 
+\vspace{0.3cm}\\
+	\textsc{Wydział Geodezji i Kartografii,Politechnika Warszawska} \\
+        \textsc{Warszawa, 1 Maja 2023}
+\end{center} 
+\rule{\textwidth}{1.0pt}
+
+\newpage   
+\section{Wstęp}
+\subsection{Cel ćwiczenia}
+Napisanie skryptu, który implementuje geodezyjne funkcje transformacyjne. 
+
+\subsection{Polecenie}
+Napisz program w języku Python, który będzie posiadał klasę zawierającą metody implementujące podane niżej transformacje współrzędnych geodezyjnych. \\
+1) XYZ na BLH \\
+2) BLH na XYZ \\
+3) XYZ na NEUp \\ 
+4) BL (GRS80, WGS84, ew. Krasowski) na 2000 \\
+5) BL (GRS80, WGS84, ew. Krasowski) na 1992 \\
+
+Program powinien umożliwiać podawanie argumentów przy wywołaniu za pomocą biblioteki argparse. Powinien obsługiwać transformację wielu współrzędnych zapisanych w pliku tekstowym przekazywanym jako argument i tworzyć plik wynikowy.
+
+\subsection{Narzędzia}
+Aby korystać z napisanego skryptu należy mieć w swoim komputerze następujące programy/systemy: \\
+-Windows 10 (oraz nowsze) \\ 
+-Python 3.8 (oraz nowsze) \\ 
+-Biblioteki pobrane w programie: argparse, numpy, math, os \\ 
+-Programy: Program stworzony na 3 semestrze podczas zajęć z Geodezji Wyższej \\
+
+
+\newpage
+\section{Program}
+\input{program.tex}
+\subsection{Opis działania programu}
+Program który napisaliśmy służy do przeliczania następujacych współrzędnych:\\
+- XYZ (geocentryczne) -> BLH (elipsoidalne fi, lambda, h)\\
+-BLH -> XYZ\\
+-XYZ -> NEU\\
+-BL(GRS80, WGS84, ew. Krasowski) -> Gaussa-Krugera\\
+-BL(GRS80, WGS84, ew. Krasowski) -> 2000\\
+-BL(GRS80, WGS84, ew. Krasowski) -> 1992\\
+Program przyjmuje plik txt, a następnie przelicza współrzędne do zadanego układu.
+
+\newpage
+\section{Wnioski}
+\large Stworzone przez nas \textbf{\href{https://github.com/20KuBa02/Projekt_1}
+{REPOZYTORIUM}}\\
+
+
+\bibliography{bibliografia}
+@Misc{str1,
+    author       = {{ASG EUPOS}},
+    howpublished = {\url{www.asgeupos.pl/index.php?wpg_type=tech_transf&sub=xyz_blh}},
+    note         = {Accesed: 2023-04-21},
+    title        = {{Strona systemu ASG-EUPOS}},
+    year         = {2023},
+}
+
+@Misc{NCEI2020,
+    author       = {{NCEI}},
+    howpublished = {\url{www.ngdc.noaa.gov/geomag/WMM/DoDWMM.shtml}},
+    note         = {Dostęp: 2020-09-30},
+    title        = {{NCEI Geomagnetic Modeling Team and British Geological Survey. 2019. World Magnetic Model 2020}},
+    year         = {2020},
+    doi          = {10.25921/11v3-da71},
+}
+
+@Misc{str3,
+    author       = {{GEONET}},
+    howpublished = {\url{www.geonet.net.pl/images/2002_12_uklady_wspolrz.pdf}},
+    note         = {Accesed: 2023-04-21},
+    title        = {{Strona portalu GEONET}},
+    year         = {2023},
+}
+
+@Book{Borkowski.Przybylski2015,
+    title    = {Książka kucharska LaTeX},
+    year     = {2015},
+    author   = {Marcin Borkowski and Bartłomiej Przybylski},
+    publisher = {Springer Wien New York},
+}
+
+
+
+
+\end{document}
