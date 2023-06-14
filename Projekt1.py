@@ -1,11 +1,12 @@
 import math as m
 from math import sin, cos, sqrt, atan, atan2, degrees, radians
 import numpy as np
-
+import argparse
 class Transformacje:
     def __init__(self, model: str = "wgs84"):
         """
         Parametry elipsoid:
+           
             a - duża półoś elipsoidy - promień równikowy
             b - mała półoś elipsoidy - promień południkowy
             flat - spłaszczenie
@@ -43,17 +44,19 @@ class Transformacje:
         
     def Np(self,flh, jedn = "dec"):
         """
-        Największy promień krzywizny na pozycję uzytkownika
+        Największy promień krzywizny na daną pozycję uzytkownika
         
         Parameters
         ----------
-        fi : float
+        phi : float
             [stopnie dziesiętne] - szerokość geodezyjna
+       
         Returns
         -------
         N : float
             [metry] - największy promień krzywizny
         """
+        
         phi = float(flh[0])
         if jedn == "rad":
             pass
@@ -95,6 +98,7 @@ class Transformacje:
         h : float
             [metry] - wysokość geometryczna(elipsoidalna)
         """
+       
         r = np.sqrt(xyz[0]**2 + xyz[1]**2)
         phi_prv = m.atan(xyz[2] / (r * (1 - self.e2)))
         phi = 0
@@ -160,18 +164,17 @@ class Transformacje:
         
         return xyz
     
-    def xyz2neu(self, xyz0, xyz, jedn = 'dec'):
+    def xyz2neu(self, xyz0, xyz):
         """
         Sferyczny układ współrzędnych – układ współrzędnych w trójwymiarowej przestrzeni euklidesowej.
+        
         Parameters
         ----------
         xyz0 : [list]
             [metry] - współrzędne punktu w układzie orto-kartezjańskim
         xyz : [list]
             [metry] - współrzędne referencyjne w układzie orto-kartezjańskim
-        jedn : [str] , optional
-             Jednostka podawanych wartosci. The default is 'dec'.
-             ["rad" - radiany, "gra" - grady, "dec" - stopnie]
+        
         
         Raises
         ------
@@ -183,15 +186,9 @@ class Transformacje:
         neu : [list]
             [metry] - współrzędne w układzie sferycznym
         """
+       
         flh = Transformacje.xyz2flh(self,xyz0)
-        if jedn == 'rad':
-            pass
-        elif jedn == 'dec':
-            flh = [float(np.radians(flh[0])),float(np.radians(flh[1])),float(flh[2])]
-        elif jedn == 'gra':
-            flh = [float(flh[0]*m.pi/200), float(flh[1]*m.pi/200), float(flh[2])]
-        else:
-            raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
+        
         R = np.array([[-np.sin(radians(flh[1])) , -np.sin(radians(flh[0])) * np.cos(radians(flh[1])) , np.cos(radians(flh[0])) * np.cos(radians(flh[1]))],
              [np.cos(radians(flh[0]))  , -np.sin(radians(flh[0])) * np.sin(radians(flh[1])) , np.cos(radians(flh[0])) * np.sin(radians(flh[1]))],
              [0 , np.cos(flh[0]) , np.sin(flh[0])]])
@@ -199,8 +196,8 @@ class Transformacje:
                          [xyz[1] - xyz0[1]],
                          [xyz[2] - xyz0[2]]])
         ENU = R.transpose() @ XYZT
-        enu = [round(ENU[0][0],3), round(ENU[1][0],3), round(ENU[2][0],3)]
-        return(enu)
+        neu = [round(ENU[0][0],3), round(ENU[1][0],3), round(ENU[2][0],3)]
+        return(neu)
     
     def sigma(self, flh, jedn = "dec"):
         '''
@@ -288,16 +285,7 @@ class Transformacje:
             flh = [float(flh[0]*m.pi/200), float(flh[1]*m.pi/200), float(flh[2])]
         else:
             raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
-        
-        if jedn == 'rad':
-            pass
-        elif jedn == 'dec':
-            flh = [float(np.radians(flh[0])),float(np.radians(flh[1])),float(flh[2])]
-        elif jedn == 'gra':
-            flh = [float(flh[0]*200/m.pi), float(flh[1]*200/m.pi), float(flh[2])]
-        else:
-            raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
-       
+    
         l0 = np.radians(l0)
        
         b2 = (self.a**2)*(1-self.e2);
@@ -382,34 +370,42 @@ class Transformacje:
         xy1992 : LIST
             Wspolrzedne w układzie PL-1992 [metry]
         """
-        if jedn == "rad":
-            flh = [np.radians(flh[0:2]),flh[2]]
-        elif jedn == "dec":
+        if jedn == 'rad':
+            flh = [float(np.degrees(flh[0])),float(np.degrees(flh[1])),float(flh[2])]
+        elif jedn == 'dec':
             pass
-        elif jedn == "gra":
-            flh = [flh[0:2]*9/10,flh[2]]
+        elif jedn == 'gra':
+            flh = [float(flh[0]*9/10), float(flh[1]*9/10), float(flh[2])]
         else:
             raise NotImplementedError(f"{jedn} nie jest w zbiorze okreslen")
-        
+       
         xygk = self.XgkYgk(flh, 19, 'dec')
         X1992 = xygk[0] * 0.9993 - 5300000
         Y1992 = xygk[1] * 0.9993 + 500000
         xy1992 = [X1992,Y1992]
         return(xy1992)
        
+    def do_listy(x,y,z):
+        lista = [x,y,z]
+        return lista        
+            
+
         
 geo = Transformacje(model = "wgs84")
 # dane XYZ geocentryczne
 X = 3664940.500; Y = 1409153.590; Z = 5009571.170
 xyz = [X,Y,Z]
 flh = geo.xyz2flh(xyz,'dec')
-print(flh)
+#print(flh)
 xyz0 = [X+100,Y+1000,Z+234]
-neu = geo.xyz2neu(xyz0, xyz,'dec')
-print(neu)
+
+neu = geo.xyz2neu(xyz0, xyz)
+#print(neu)
 l0 = 21
 xy00 = geo.XY2000(flh, l0, jedn = 'dec')
-print(xy00)
+#print(xy00)
 
 xy92 = geo.XY1992(flh,jedn = 'dec')
-print(xy92)
+#print(xy92)
+
+ 
