@@ -77,7 +77,7 @@ class Transformacje:
         
         Parameters
         ----------
-        xyz : [list]
+        xyz : [list] [metry]
             [metry] - współrzędne w układzie orto-kartezjańskim
         jedn : STR, optional
            Jednostka podawanych wartosci. The default is 'dec'.
@@ -91,11 +91,11 @@ class Transformacje:
         Returns
         -------
         flh = [f,l,h]
-        f : float
+        f : float [wybrana jednostka z listy]
             - szerokość geodezyjna
-        l : float
+        l : float [wybrana jednostka z listy]
             - długość geodezyjna
-        h : float
+        h : float [wybrana jednostka z listy]
             [metry] - wysokość geometryczna(elipsoidalna)
         """
        
@@ -130,7 +130,7 @@ class Transformacje:
         
         Parameters
         ----------
-        flh - wspolrzedne geodezyjne
+        flh - wspolrzedne geodezyjne [wybrana jednostka z listy]
         jedn : [str] , optional
              Jednostka podawanych wartosci. The default is 'dec'.
              ["rad" - radiany, "gra" - grady, "dec" - stopnie]
@@ -171,7 +171,7 @@ class Transformacje:
         Parameters
         ----------
         xyz0 : [list]
-            [metry] - współrzędne punktu w układzie orto-kartezjańskim
+            [metry] - współrzędna punktu w układzie orto-kartezjańskim, która definiuje srodek układu
         xyz : [list]
             [metry] - współrzędne referencyjne w układzie orto-kartezjańskim
         
@@ -205,7 +205,7 @@ class Transformacje:
 
         Parameters
         ----------
-        flh : LIST
+        flh : LIST [wybrana jednostka z listy]
             wspolrzedne geodezyjne phi, lam, h [metry]
         jedn : STR, optional
             Jednostka wspolrzednych geodezyjnych. Domyslna jest "dec".
@@ -258,8 +258,8 @@ class Transformacje:
         
         Parameters
         ----------
-        flh : LIST
-            wspolrzedne geodezyjne phi, lam, h [metry]
+        flh : LIST 
+            wspolrzedne geodezyjne phi, lam [wybrana jednostka z listy], h [metry]
         l0 : int
             [stopnie dziesiętne] - południk osiowy
         jedn : STR, optional
@@ -273,7 +273,7 @@ class Transformacje:
 
         Returns
         -------
-        xygk : LIST
+        xygk : LIST 
             Wspolrzedne odwzorowania Gaussa-Krugera [metry]
         """
         
@@ -312,7 +312,7 @@ class Transformacje:
         Parameters
         ----------
         flh : LIST
-            wspolrzedne geodezyjne phi, lam, h [metry]
+            wspolrzedne geodezyjne phi, lam [wybrana jednostka z listy], h [metry]
         l0 : int
             [stopnie dziesiętne] - południk osiowy
         jedn : STR, optional
@@ -353,7 +353,7 @@ class Transformacje:
         Parameters
         ----------
         flh : LIST
-            wspolrzedne geodezyjne phi, lam, h [metry]
+            wspolrzedne geodezyjne phi, lam [wybrana jednostka z listy], h [metry]
         l0 : int
             [stopnie dziesiętne] - południk osiowy
         jedn : STR, optional
@@ -407,5 +407,5 @@ xy00 = geo.XY2000(flh, l0, jedn = 'dec')
 
 xy92 = geo.XY1992(flh,jedn = 'dec')
 #print(xy92)
-
+print()
  
