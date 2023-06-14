@@ -20,7 +20,8 @@ def czytanie_txt(xyz0 , l0 ,model = 'nazwa modelu', plik = 'nazwa pliku', funkcj
     ----------
     
     xyz0 : [list]
-        [metry] - współrzędne punktu w układzie orto-kartezjańskim
+        [metry] - współrzędne punktu w układzie orto-kartezjańskim, 
+        są to współrzedne służące do zdefiniowania srodka układu lokalnego
     l0 : int
         [stopnie dziesiętne] - południk osiowy
     jedn : STR, optional
@@ -61,7 +62,7 @@ def czytanie_txt(xyz0 , l0 ,model = 'nazwa modelu', plik = 'nazwa pliku', funkcj
     elif funkcja == 'xyz2neu':
         xyz = []
         for i in wsp2:
-            flh = geo.xyz2neu(xyz0,i,jedn)
+            flh = geo.xyz2neu(xyz0,i)
             xyz.append(flh)
     elif funkcja == 'XgkYgk':
         xyz = []
@@ -86,7 +87,7 @@ def czytanie_txt(xyz0 , l0 ,model = 'nazwa modelu', plik = 'nazwa pliku', funkcj
         plik_w.write(f'''{i}\n''')
     plik_w.close()
     
+czytanie_txt([4353.06678,5345,355],19, 'wgs84', 'wsp_inp.txt', 'XY1992' ,'gra' ,'sprawdzenie'  )
+
     
     
-    
-czytanie_txt([0,0,0], 0, 'wgs84' , 'wsp_inp.txt', 'xyz2flh' , 'dec', 'nazwa_pliku_wychodzącego')
