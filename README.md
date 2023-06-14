@@ -9,14 +9,22 @@ komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - Spyder - wieloplatformowe zintegrowane środowisko programistyczne
 - biblioteka NumPy – otwartoźródłowa biblioteka programistyczna dla języka Python, dodająca obsługę dużych, wielowymiarowych tabel i macierzy
 - biblioteka math - otwartoźródłowa biblioteka programistyczna dla języka Python , obługuje większość zagadnień matematycznych
+- biblioteka argparse
 
-Program który napisaliśmy służy do przeliczania następujacych współrzędnych:
-- XYZ (geocentryczne) -> BLH (elipsoidalne fi, lambda, h)
-- BLH -> XYZ
-- XYZ -> NEU
-- BL(GRS80, WGS84, ew. Krasowski) -> Gaussa-Krugera
-- BL(GRS80, WGS84, ew. Krasowski) -> 2000
-- BL(GRS80, WGS84, ew. Krasowski) -> 1992
+Funkcje 
+__init__(self, model: str = "wgs84"): Inicjalizuje obiekt Transformacje przyjmując nazwę modelu elipsoidy jako argument. Dostępne modele elipsoidy to "wgs84", "wgs72", "grs80", "Krasowski", "Międzynarodowa", "Bessel" i "Clarke".
+
+Np(self, flh, jedn = "dec"): Oblicza największy promień krzywizny na danej pozycji użytkownika.
+
+xyz2flh(self, xyz, jedn = 'dec'): Przekształca współrzędne ortokartezjańskie (x, y, z) na współrzędne geodezyjne (B, L, h).
+
+flh2XYZ(self, flh, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne ortokartezjańskie (x, y, z).
+
+xyz2neu(self, xyz0, xyz): Przekształca współrzędne ortokartezjańskie (x, y, z) na współrzędne sferyczne (N, E, U) względem punktu referencyjnego.
+
+sigma(self, flh, jedn = "dec"): Oblicza długość łuku południka.
+
+XgkYgk(self, flh, l0, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne odwzorowania Gaussa-Krügera (Xgk, Ygk).
 
 Charakterystyka poszczególnych funkcji:
 
@@ -38,7 +46,7 @@ Dostępne modele elipsoid:
 "grs80":
            a = 6378137.0
            b = 6356752.31414036
-"Krasowski":
+"Krasowski":                  UWAGA(Biorąc tą elipsoidę możemy uzyskać błędne wyniki)
            a = 6378245.000
            b = 6356863.019
 "Międzynarodowa":
