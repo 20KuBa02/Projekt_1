@@ -4,8 +4,7 @@
 - Plik "czytanie_txt.py" zawiera funkcję, która pobiera dane z pliku tekstowego (dane muszą być w odpowiednim formacie) i korzystając z funkcji z pliku "Projekt1.py" przekształca je do odpowiedniego układu. Współrzędne są zwracane w postaci pliku tekstowego. 
 - Plik "Aplikacja.py" został stworzony, aby umożliwić korzystanie z wszystkich funkcji zawartych w pliku "Projekt1.py" oraz "czytanie_txt" poprzez okno konsoli (cmd)
 
-## Aby wszystkie programy zawarte w tym repozytorium mogły działać bez zarzutów trzeba mieć na swoim
-komputerze zainstalowane następujące aplikacje,programy i biblioteki:
+## Aby wszystkie programy zawarte w tym repozytorium mogły działać bez zarzutów trzeba mieć na swoim komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - Python - czyli język programowania wysokiego poziomu , w wersji nie młodszej niż 3.10
 - Spyder - wieloplatformowe zintegrowane środowisko programistyczne
 - biblioteka NumPy – otwartoźródłowa biblioteka programistyczna dla języka Python, dodająca obsługę dużych, wielowymiarowych tabel i macierzy
@@ -28,7 +27,7 @@ komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - XgkYgk(self, flh, l0, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne odwzorowania Gaussa-Krügera (Xgk, Ygk).
 
 # Charakterystyka poszczególnych funkcji zawartych w pliku Projekt1.py
-## "__init__"
+## __init__
 
  Parametry elipsoid:
  - a - duża półoś elipsoidy - promień równikowy
@@ -65,20 +64,17 @@ Dostępne modele elipsoid:
  + Inne powierzchnie odniesienia: http://uriasz.am.szczecin.pl/naw_bezp/elipsoida.html
 
         
-## Np
-        Największy promień krzywizny na daną pozycję uzytkownika
+## Np - Największy promień krzywizny na daną pozycję uzytkownika
      
-        Parameters
-        ----------
-        phi : float
-            [stopnie dziesiętne] - szerokość geodezyjna
+Parameters
+----------
+phi : float[stopnie dziesiętne] - szerokość geodezyjna
        
-        Returns
-        -------
-        N : float
-            [metry] - największy promień krzywizny
+Returns
+-------
+N : float [metry] - największy promień krzywizny
                           
-xyz2flh :
+## xyz2flh
         Algorytm Hirvonena – algorytm służący do transformacji współrzędnych ortokartezjańskich (prostokątnych) x, y, z na współrzędne geodezyjne B, L, h.
         Jest to proces iteracyjny. W wyniku 3-4-krotnego powtarzania procedury można przeliczyć współrzędne na poziomie dokładności 1 cm.
         
