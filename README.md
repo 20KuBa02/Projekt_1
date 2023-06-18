@@ -374,8 +374,8 @@ plik txt
 
 
 ## Spostrzeżenia i trudności podczas tworzenia programu
-- Przy wprowadzaniu danych można wpisać jakikolwiek numer strefy w odwzorowaniu
-PL-2000, a nie tylko (5,6,7,8); dla tego problemu nie znaleźliśmy rozwiązania;
+- Przy wprowadzaniu danych można wpisać jakikolwiek południk zerowy w odwzorowaniu
+PL-2000, a nie tylko (15,18,21,24); dla tego problemu nie znaleźliśmy rozwiązania;
 - Praca dwóch osób na tej samej gałęzi powoduje problemy w gicie, aby tego
 uniknąć należy pracować na osobnych gałęziach i mergeować do gałęzi głównej;
 - Funkcja wczytująca dane z pliku txt ogranicza format tego pliku do jednej postaci,
