@@ -69,17 +69,16 @@ Dostępne modele elipsoid:
 #### Parameters
 phi : float[stopnie dziesiętne] - szerokość geodezyjna
        
-##### Returns
+#### Returns
 N : float [metry] - największy promień krzywizny
                           
-## xyz2flh
-        Algorytm Hirvonena – algorytm służący do transformacji współrzędnych ortokartezjańskich (prostokątnych) x, y, z na współrzędne geodezyjne B, L, h.
-        Jest to proces iteracyjny. W wyniku 3-4-krotnego powtarzania procedury można przeliczyć współrzędne na poziomie dokładności 1 cm.
+## xyz2flh - Algorytm Hirvonena – algorytm służący do transformacji współrzędnych ortokartezjańskich (prostokątnych) x, y, z na współrzędne geodezyjne B, L, h.Jest to proces iteracyjny. W wyniku 3-4-krotnego powtarzania procedury można przeliczyć współrzędne na poziomie dokładności 1 cm.
         
-        Parameters
-        ----------
-        xyz : [list]
-            [metry] - współrzędne w układzie orto-kartezjańskim
+####Parameters
+xyz =[x,y,z]: [list]
+- x [metry] - współrzędna "x" w układzie orto-kartezjańskim
+- y [metry] - współrzędna "y" w układzie orto-kartezjańskim
+- x [metry] - współrzędna "z" w układzie orto-kartezjańskim
         jedn : STR, optional
            Jednostka podawanych wartosci. The default is 'dec'.
            ["rad" - radiany, "gra" - grady, "dec" - stopnie]
