@@ -1,10 +1,10 @@
 # Program transforamcje
-Nasz program służący do transformacji współrzędnych pomiędzy układami składa się z trzech plików Python.
+## Nasz program służący do transformacji współrzędnych pomiędzy układami składa się z trzech plików Python.
 - Plik "Projekt1.py" zawiera parametry elipsoidy oraz dużą liczbę funkcji do transformacji między układami. 
 - Plik "czytanie_txt.py" zawiera funkcję, która pobiera dane z pliku tekstowego (dane muszą być w odpowiednim formacie) i korzystając z funkcji z pliku "Projekt1.py" przekształca je do odpowiedniego układu. Współrzędne są zwracane w postaci pliku tekstowego. 
 - Plik "Aplikacja.py" został stworzony, aby umożliwić korzystanie z wszystkich funkcji zawartych w pliku "Projekt1.py" oraz "czytanie_txt" poprzez okno konsoli (cmd)
 
-Aby wszystkie programy zawarte w tym repozytorium mogły działać bez zarzutów trzeba mieć na swoim
+## Aby wszystkie programy zawarte w tym repozytorium mogły działać bez zarzutów trzeba mieć na swoim
 komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - Python - czyli język programowania wysokiego poziomu , w wersji nie młodszej niż 3.10
 - Spyder - wieloplatformowe zintegrowane środowisko programistyczne
@@ -28,6 +28,7 @@ komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - XgkYgk(self, flh, l0, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne odwzorowania Gaussa-Krügera (Xgk, Ygk).
 
 # Charakterystyka poszczególnych funkcji zawartych w pliku Projekt1.py
+## __init__
 
  Parametry elipsoid:
  - a - duża półoś elipsoidy - promień równikowy
@@ -64,7 +65,7 @@ Dostępne modele elipsoid:
  + Inne powierzchnie odniesienia: http://uriasz.am.szczecin.pl/naw_bezp/elipsoida.html
 
         
-*** Np
+## Np
         Największy promień krzywizny na daną pozycję uzytkownika
      
         Parameters
