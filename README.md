@@ -326,6 +326,29 @@ Wynik wywołania:
 
 [2814521.391, 792647.528, -5649467.37]
 
+### - XgkYgk
+
+C:\"ścieżka do folderu z plikami">python Aplikacja.py -func XgkYgk -jedn gra -f 30.32 -l 50.54 -he 60.34 -m wgs84 -l0 48
+
+Wynik wywołania:
+
+[3022047.228355578, -248934.59922649292]
+
+### - XY2000
+
+C:\"ścieżka do folderu z plikami">python Aplikacja.py -func XY2000 -jedn gra -f 30.32 -l 50.54 -he 60.34 -m wgs84 -l0 48
+
+Wynik wywołania:
+
+[3021814.530718995, 16251084.568737648]
+
+### - XY1992
+
+C:\"ścieżka do folderu z plikami">python Aplikacja.py -func XY1992 -jedn dec -f 50.32 -l 21.54 -he 60.34 -m wgs84
+
+Wynik wywołania:
+
+[275622.33064450044, 680758.1017989423]
 
 
        
