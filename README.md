@@ -35,7 +35,7 @@
  - flat - spłaszczenie
  - ecc2 - mimośród^2
        
-Dostępne modele elipsoid:
+Dostępne modele elipsoid: 
 
  - wgs84:
  
