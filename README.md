@@ -64,7 +64,8 @@ Dostępne modele elipsoid:
  + Inne powierzchnie odniesienia: http://uriasz.am.szczecin.pl/naw_bezp/elipsoida.html
 
         
-## Np - Największy promień krzywizny na daną pozycję uzytkownika
+## Np 
+### Największy promień krzywizny na daną pozycję uzytkownika
      
 #### Parameters
 phi : float[stopnie dziesiętne] - szerokość geodezyjna
@@ -72,9 +73,10 @@ phi : float[stopnie dziesiętne] - szerokość geodezyjna
 #### Returns
 N : float [metry] - największy promień krzywizny
                           
-## xyz2flh - Algorytm Hirvonena – algorytm służący do transformacji współrzędnych ortokartezjańskich (prostokątnych) x, y, z na współrzędne geodezyjne B, L, h.Jest to proces iteracyjny. W wyniku 3-4-krotnego powtarzania procedury można przeliczyć współrzędne na poziomie dokładności 1 cm.
+## xyz2flh 
+### Algorytm Hirvonena – algorytm służący do transformacji współrzędnych ortokartezjańskich (prostokątnych) x, y, z na współrzędne geodezyjne B, L, h.Jest to proces iteracyjny. W wyniku 3-4-krotnego powtarzania procedury można przeliczyć współrzędne na poziomie dokładności 1 cm.
         
-####Parameters
+#### Parameters
 xyz =[x,y,z]: [list]
 - x [metry] - współrzędna "x" w układzie orto-kartezjańskim
 - y [metry] - współrzędna "y" w układzie orto-kartezjańskim
