@@ -1,5 +1,5 @@
 # Projekt_1
-Projekt pierwszy z informatyki
+$ Projekt pierwszy z informatyki
 
 Informacje o funkcjach zawartych w pliku Projekt_1.py
 
