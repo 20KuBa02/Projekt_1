@@ -12,22 +12,22 @@ komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - biblioteka math - otwartoźródłowa biblioteka programistyczna dla języka Python , obługuje większość zagadnień matematycznych
 - biblioteka argparse
 
-Funkcje 
-__init__(self, model: str = "wgs84"): Inicjalizuje obiekt Transformacje przyjmując nazwę modelu elipsoidy jako argument. Dostępne modele elipsoidy to "wgs84", "wgs72", "grs80", "Krasowski", "Międzynarodowa", "Bessel" i "Clarke".
+#Funkcje zawarte pliku Projekt1.py
+- __init__(self, model: str = "wgs84"): Inicjalizuje obiekt Transformacje przyjmując nazwę modelu elipsoidy jako argument. Dostępne modele elipsoidy to "wgs84", "wgs72", "grs80", "Krasowski", "Międzynarodowa", "Bessel" i "Clarke".
 
-Np(self, flh, jedn = "dec"): Oblicza największy promień krzywizny na danej pozycji użytkownika.
+- Np(self, flh, jedn = "dec"): Oblicza największy promień krzywizny na danej pozycji użytkownika.
 
-xyz2flh(self, xyz, jedn = 'dec'): Przekształca współrzędne ortokartezjańskie (x, y, z) na współrzędne geodezyjne (B, L, h).
+- xyz2flh(self, xyz, jedn = 'dec'): Przekształca współrzędne ortokartezjańskie (x, y, z) na współrzędne geodezyjne (B, L, h).
 
-flh2XYZ(self, flh, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne ortokartezjańskie (x, y, z).
+- flh2XYZ(self, flh, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne ortokartezjańskie (x, y, z).
 
-xyz2neu(self, xyz0, xyz): Przekształca współrzędne ortokartezjańskie (x, y, z) na współrzędne sferyczne (N, E, U) względem punktu referencyjnego.
+- xyz2neu(self, xyz0, xyz): Przekształca współrzędne ortokartezjańskie (x, y, z) na współrzędne sferyczne (N, E, U) względem punktu referencyjnego.
 
-sigma(self, flh, jedn = "dec"): Oblicza długość łuku południka.
+- sigma(self, flh, jedn = "dec"): Oblicza długość łuku południka.
 
-XgkYgk(self, flh, l0, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne odwzorowania Gaussa-Krügera (Xgk, Ygk).
+- XgkYgk(self, flh, l0, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne odwzorowania Gaussa-Krügera (Xgk, Ygk).
 
-Charakterystyka poszczególnych funkcji:
+#Charakterystyka poszczególnych funkcji zawartych w pliku Projekt1.py
 
  Parametry elipsoid:
             a - duża półoś elipsoidy - promień równikowy
