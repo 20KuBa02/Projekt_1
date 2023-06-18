@@ -373,7 +373,7 @@ plik txt
       [52.09727215315812, 21.031533182999517, 141.40550724137574]
 
 
-##Spostrzeżenia i trudności podczas tworzenia programu
+## Spostrzeżenia i trudności podczas tworzenia programu
 - Przy wprowadzaniu danych można wpisać jakikolwiek numer strefy w odwzorowaniu
 PL-2000, a nie tylko (5,6,7,8); dla tego problemu nie znaleźliśmy rozwiązania;
 - Praca dwóch osób na tej samej gałęzi powoduje problemy w gicie, aby tego
