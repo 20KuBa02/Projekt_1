@@ -87,7 +87,7 @@ N : float [metry] - największy promień krzywizny
 xyz = [x,y,z]: [list]
 - x [float][metry] - współrzędna "x" w układzie orto-kartezjańskim
 - y [float][metry] - współrzędna "y" w układzie orto-kartezjańskim
-- x [float][metry] - współrzędna "z" w układzie orto-kartezjańskim
+- z [float][metry] - współrzędna "z" w układzie orto-kartezjańskim
 jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]
 #### Raises
 NotImplementedError
@@ -114,7 +114,7 @@ NotImplementedError
 xyz = [x,y,z]: [list]
 - x [float][metry] - współrzędna "x" w układzie orto-kartezjańskim
 - y [float][metry] - współrzędna "y" w układzie orto-kartezjańskim
-- x [float][metry] - współrzędna "z" w układzie orto-kartezjańskim
+- z [float][metry] - współrzędna "z" w układzie orto-kartezjańskim
 
 ##  xyz2neu([x0,y0,z0], [x,y,z])
 ### Sferyczny układ współrzędnych – układ współrzędnych w trójwymiarowej przestrzeni euklidesowej.
@@ -123,12 +123,12 @@ xyz = [x,y,z]: [list]
 xyz0 = [x0,y0,z0]: [list]
 - x0 [float][metry] - współrzędna "x" w układzie orto-kartezjańskim, która definiuje środek układu
 - y0 [float][metry] - współrzędna "y" w układzie orto-kartezjańskim, która definiuje środek układu
-- x0 [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, która definiuje środek układu
+- z0 [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, która definiuje środek układu
 
 xyz = [x,y,z]: [list]
 - x [float][metry] - współrzędna "x" w układzie orto-kartezjańskim, którą przeliczamy do układu neu
 - y [float][metry] - współrzędna "y" w układzie orto-kartezjańskim, którą przeliczamy do układu neu
-- x [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, którą przeliczamy do układu neu   
+- z [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, którą przeliczamy do układu neu   
 #### Raises
 NotImplementedError
 - Jezeli podana jednostka jest poza zbiorem.
@@ -227,11 +227,17 @@ xyz0 = [x0,y0,z0]: [list]
 - y0 [float][metry] - współrzędna "y" w układzie orto-kartezjańskim, która definiuje środek układu
 - x0 [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, która definiuje środek układu
 
+
 l0 [int], południk osiowy
+
 jedn [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie] 
+
 model [str], Model elipsoidy,Wskaż elipsoidę z listy: wgs84 , wgs72 , grs80 , Krasowski , Międzynarodowa , Bessel , Clarke
+
 plik [str], Nazwa pliku o rozszerzeniu txt który wczytujemy.
+
 funkcja [str], Nazwa funkcji według której chcemy przeliczyć współrzędne między układami. Wybór funkcji: xyz2flh,flh2XYZ,xyz2neu,XgkYgk,XY2000,XY1992.
+
 #### Returns
 Plik o rozszerzeniu txt z przeliczonymi współrzędnymi
    
