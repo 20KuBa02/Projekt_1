@@ -12,7 +12,7 @@ komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - biblioteka math - otwartoźródłowa biblioteka programistyczna dla języka Python , obługuje większość zagadnień matematycznych
 - biblioteka argparse
 
-#Funkcje zawarte pliku Projekt1.py
+# Funkcje zawarte pliku Projekt1.py
 - __init__(self, model: str = "wgs84"): Inicjalizuje obiekt Transformacje przyjmując nazwę modelu elipsoidy jako argument. Dostępne modele elipsoidy to "wgs84", "wgs72", "grs80", "Krasowski", "Międzynarodowa", "Bessel" i "Clarke".
 
 - Np(self, flh, jedn = "dec"): Oblicza największy promień krzywizny na danej pozycji użytkownika.
@@ -27,7 +27,7 @@ komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 
 - XgkYgk(self, flh, l0, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne odwzorowania Gaussa-Krügera (Xgk, Ygk).
 
-#Charakterystyka poszczególnych funkcji zawartych w pliku Projekt1.py
+# Charakterystyka poszczególnych funkcji zawartych w pliku Projekt1.py
 
  Parametry elipsoid:
             a - duża półoś elipsoidy - promień równikowy
