@@ -120,10 +120,11 @@ xyz = [x,y,z]: [list]
 ### Sferyczny układ współrzędnych – układ współrzędnych w trójwymiarowej przestrzeni euklidesowej.
      
 #### Parameters
-xyz0 = [x0,0y,z0]: [list]
+xyz0 = [x0,y0,z0]: [list]
 - x0 [float][metry] - współrzędna "x" w układzie orto-kartezjańskim, która definiuje środek układu
 - y0 [float][metry] - współrzędna "y" w układzie orto-kartezjańskim, która definiuje środek układu
 - x0 [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, która definiuje środek układu
+
 xyz = [x,y,z]: [list]
 - x [float][metry] - współrzędna "x" w układzie orto-kartezjańskim, którą przeliczamy do układu neu
 - y [float][metry] - współrzędna "y" w układzie orto-kartezjańskim, którą przeliczamy do układu neu
@@ -221,10 +222,11 @@ Program czytanie_txt przyjmuje plik txt tylko w takim formacie:
 A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.
 
 #### Parameters
-xyz0 = [x0,0y,z0]: [list]
+xyz0 = [x0,y0,z0]: [list]
 - x0 [float][metry] - współrzędna "x" w układzie orto-kartezjańskim, która definiuje środek układu
 - y0 [float][metry] - współrzędna "y" w układzie orto-kartezjańskim, która definiuje środek układu
 - x0 [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, która definiuje środek układu
+
 l0 [int], południk osiowy
 jedn [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie] 
 model [str], Model elipsoidy,Wskaż elipsoidę z listy: wgs84 , wgs72 , grs80 , Krasowski , Międzynarodowa , Bessel , Clarke
