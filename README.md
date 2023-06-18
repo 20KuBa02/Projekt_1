@@ -277,3 +277,12 @@ Program czytanie_txt przyjmuje plik txt tylko w takim formacie:
         
 A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.
 
+Plik txt który zwraca funkcja wygląda następujaco:
+        Funkcja: xyz2flh
+        [52.09727221841272, 21.03153333279777, 141.398586823605]
+        [52.09727216111064, 21.031533144230153, 141.39974895119667]
+        [52.097272120371336, 21.031532955662534, 141.4032782446593]
+        [52.097272085152944, 21.031532767094923, 141.40759659186006]
+        [52.09727208603574, 21.031533228061544, 141.41005479265004]
+        [52.09727211893464, 21.031533177762707, 141.40213536750525]
+       
