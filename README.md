@@ -64,7 +64,7 @@ Dostępne modele elipsoid:
  + Inne powierzchnie odniesienia: http://uriasz.am.szczecin.pl/naw_bezp/elipsoida.html
 
         
-Np :   
+<--Np-->   
         Największy promień krzywizny na daną pozycję uzytkownika
      
         Parameters
