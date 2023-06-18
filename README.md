@@ -303,11 +303,20 @@ Reszta argumentów uzależniona jest od wyboru funckji.Pozostałe argumenty:
 ### - xyz2flh
 Wiersz poleceń:
 
-C:\ścieżka do folderu z plikami\>python Aplikacja.py -func xyz2flh -x 300000 -y 400000 -z 500000 -jedn gra -m wgs84
+C:\"ścieżka do folderu z plikami">python Aplikacja.py -func xyz2flh -x 300000 -y 400000 -z 500000 -jedn gra -m wgs84
 
 Wynik wywołania:
 
 [51.92227265827607, 59.03344706017331, -5660023.826936786]
+
+### - xyz2neu
+Wiersz poleceń:
+
+C:\"ścieżka do folderu z plikami">python Aplikacja.py -func xyz2neu -x0 300000 -y0 400000 -z0 500000  -xr 300000 -yr 500000 -zr 600000 -m wgs84
+
+Wynik wywołania:
+
+[68543.662, -150594.646, 93209.062]
 
 
 
