@@ -265,6 +265,7 @@ Reszta argumentów uzależniona jest od wyboru funckji.Pozostałe argumenty:
 - XY2000(-f,-l,-he,-l0,-jedn)
 - XY1992(-f,-l,-he,-jedn)
 - czytanie_txt(-x0,-y0,-z0,-l0,-m,-plik,-func2,-jedn,-plik_wych)
+
 Program czytanie_txt przyjmuje plik txt tylko w takim formacie:
         3664940.500 1409153.590 5009571.170
         3664940.510 1409153.580 5009571.167
