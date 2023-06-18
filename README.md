@@ -373,6 +373,14 @@ plik txt
       [52.09727215315812, 21.031533182999517, 141.40550724137574]
 
 
-
+##Spostrzeżenia i trudności podczas tworzenia programu
+- Przy wprowadzaniu danych można wpisać jakikolwiek numer strefy w odwzorowaniu
+PL-2000, a nie tylko (5,6,7,8); dla tego problemu nie znaleźliśmy rozwiązania;
+- Praca dwóch osób na tej samej gałęzi powoduje problemy w gicie, aby tego
+uniknąć należy pracować na osobnych gałęziach i mergeować do gałęzi głównej;
+- Funkcja wczytująca dane z pliku txt ogranicza format tego pliku do jednej postaci,
+co może utrudniać korzystanie z programu.
+- Zaistniały problem z elipsoidą Krasowskeigo dla której nie otrzymamy poprawnych
+wyników trnsformacji ze wzgledu na brak zaimplementowania odpowiedniego algorytmu
 
        
