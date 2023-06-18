@@ -64,76 +64,74 @@ Dostępne modele elipsoid:
  + Inne powierzchnie odniesienia: http://uriasz.am.szczecin.pl/naw_bezp/elipsoida.html
 
         
-## Np 
+## Np([f,l,h],jedn) 
 ### Największy promień krzywizny na daną pozycję uzytkownika
      
 #### Parameters
-phi : float[stopnie dziesiętne] - szerokość geodezyjna
-       
+flh = [f,l,h]: [list]
+- f[float][jedn] - szerokość geodezyjna
+- l[float][jedn] - długość geodezyjna
+- h[float][metry] - wysokość geometryczna(elipsoidalna)
+Funkcja pobiera tylko szerokość geodezyjną
+jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]      
+#### Raises
+NotImplementedError
+Jezeli podana jednostka jest poza zbiorem.
 #### Returns
 N : float [metry] - największy promień krzywizny
                           
-## xyz2flh 
+## xyz2flh([x,y,z],jedn) 
 ### Algorytm Hirvonena – algorytm służący do transformacji współrzędnych ortokartezjańskich (prostokątnych) x, y, z na współrzędne geodezyjne B, L, h.Jest to proces iteracyjny. W wyniku 3-4-krotnego powtarzania procedury można przeliczyć współrzędne na poziomie dokładności 1 cm.
         
 #### Parameters
-xyz =[x,y,z]: [list]
-- x [metry] - współrzędna "x" w układzie orto-kartezjańskim
-- y [metry] - współrzędna "y" w układzie orto-kartezjańskim
-- x [metry] - współrzędna "z" w układzie orto-kartezjańskim
-        jedn : STR, optional
-           Jednostka podawanych wartosci. The default is 'dec'.
-           ["rad" - radiany, "gra" - grady, "dec" - stopnie]
-        
-        Raises
-        ------
-        NotImplementedError
-        Jezeli podana jednostka jest poza zbiorem.
-       
-        Returns
-        -------
-        flh = [f,l,h]
-        f : float
-            - szerokość geodezyjna
-        l : float
-            - długość geodezyjna
-        h : float
-            [metry] - wysokość geometryczna(elipsoidalna)
+xyz = [x,y,z]: [list]
+- x [float][metry] - współrzędna "x" w układzie orto-kartezjańskim
+- y [float][metry] - współrzędna "y" w układzie orto-kartezjańskim
+- x [float][metry] - współrzędna "z" w układzie orto-kartezjańskim
+jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]
+#### Raises
+NotImplementedError
+Jezeli podana jednostka jest poza zbiorem.
+#### Returns
+flh = [f,l,h]: [list]
+- f[float][jedn] - szerokość geodezyjna
+- l[float][jedn] - długość geodezyjna
+- h[float][metry] - wysokość geometryczna(elipsoidalna)
   
-           
- flh2XYZ :
-  
-        Funkcja transformujaca współrzędne geodezyjne długość szerokość i wysokośc elipsoidalna 
-        na współrzędne ortokartezjańskie
+## flh2XYZ([f,l,h],jedn)
+###Funkcja transformujaca współrzędne geodezyjne długość szerokość i wysokośc elipsoidalna na współrzędne ortokartezjańskie
         
-        Parameters
-        ----------
-        flh - wspolrzedne geodezyjne
-        jedn : [str] , optional
-             Jednostka podawanych wartosci. The default is 'dec'.
-             ["rad" - radiany, "gra" - grady, "dec" - stopnie]
-        
-        Raises
-        ------
-        NotImplementedError
-        Jezeli podana jednostka jest poza zbiorem.
-       
-        Returns
-        -------
-        [X,Y,Z] : list
-            [metry] - współrzędne w układzie orto-kartezjańskim
+#### Parameters
+flh = [f,l,h]: [list]
+- f[float][jedn] - szerokość geodezyjna
+- l[float][jedn] - długość geodezyjna
+- h[float][metry] - wysokość geometryczna(elipsoidalna)    
+jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]   
+#### Raises
+NotImplementedError
+Jezeli podana jednostka jest poza zbiorem.
+#### Returns
+xyz = [x,y,z]: [list]
+- x [float][metry] - współrzędna "x" w układzie orto-kartezjańskim
+- y [float][metry] - współrzędna "y" w układzie orto-kartezjańskim
+- x [float][metry] - współrzędna "z" w układzie orto-kartezjańskim
+
+## Sigma([f,l,h],jedn)
+###Algorytm liczący długosć łuku południka.
+
+#### Parameters
+flh = [f,l,h]: [list]
+- f[float][jedn] - szerokość geodezyjna
+- l[float][jedn] - długość geodezyjna
+- h[float][metry] - wysokość geometryczna(elipsoidalna)    
+jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]   
+#### Raises
+NotImplementedError
+Jezeli podana jednostka jest poza zbiorem.
+#### Returns
+sigma [float][metry] - długość łuku południka 
 
 
-Sigma:
-    
-        Algorytm liczący długosć łuku południka.
-
-        Parameters
-        ----------
-        flh : LIST
-            wspolrzedne geodezyjne phi, lam, h [metry]
-        jedn : STR, optional
-            Jednostka wspolrzednych geodezyjnych. Domyslna jest "dec".
 XgkYgk
        
         Odwzorowanie Gaussa-Krügera – odwzorowanie kartograficzne pasów południkowych na pobocznicę walca stycznego
