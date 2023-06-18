@@ -38,25 +38,45 @@
 Dostępne modele elipsoid:
 
  - wgs84:
+ 
  a = 6378137.0 
+ 
  b = 6356752.31424518 
+ 
  - wgs72:
+ 
  a = 6378135.000
+ 
  b = 6356750.520
+ 
  - grs80:
+ 
  a = 6378137.0
+ 
  b = 6356752.31414036
+ 
  - Krassowski: UWAGA(Biorąc tą elipsoidę możemy uzyskać błędne wyniki)
+ 
  a = 6378245.000
+ 
  b = 6356863.019
+ 
  - Międzynarodowa:
+ 
  a = 6378160.000
+ 
  b = 6356774.719
+ 
  - Bessel:
+
  a = 6377397.155
+ 
  b = 6356078.963
+ 
  - Clarke:
+ 
  a = 6378249.145
+
  b = 6356514.870
 
 Żródło informacji na temat elipsoid:
