@@ -355,6 +355,7 @@ C:\"ścieżka do folderu z plikami">python Aplikacja.py -func czytanie_txt -jedn
 Wynik wywołania:
 
 plik txt
+      
       Funkcja: xyz2flh
       [52.09727221841272, 21.03153333279777, 141.398586823605]
       [52.09727216111064, 21.031533144230153, 141.39974895119667]
