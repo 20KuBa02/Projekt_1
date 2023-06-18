@@ -116,6 +116,27 @@ xyz = [x,y,z]: [list]
 - y [float][metry] - współrzędna "y" w układzie orto-kartezjańskim
 - x [float][metry] - współrzędna "z" w układzie orto-kartezjańskim
 
+##  xyz2neu([x0,y0,z0], [x,y,z])
+### Sferyczny układ współrzędnych – układ współrzędnych w trójwymiarowej przestrzeni euklidesowej.
+     
+#### Parameters
+xyz0 = [x0,0y,z0]: [list]
+- x0 [float][metry] - współrzędna "x" w układzie orto-kartezjańskim, która definiuje środek układu
+- y0 [float][metry] - współrzędna "y" w układzie orto-kartezjańskim, która definiuje środek układu
+- x0 [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, która definiuje środek układu
+xyz = [x,y,z]: [list]
+- x [float][metry] - współrzędna "x" w układzie orto-kartezjańskim, którą przeliczamy do układu neu
+- y [float][metry] - współrzędna "y" w układzie orto-kartezjańskim, którą przeliczamy do układu neu
+- x [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, którą przeliczamy do układu neu   
+#### Raises
+NotImplementedError
+- Jezeli podana jednostka jest poza zbiorem.
+#### Returns
+neu = [n,e,u]: [list]
+- n [float][metry] - współrzędna "n" w układzie sferycznym
+- e [float][metry] - współrzędna "e" w układzie sferycznym
+- u [float][metry] - współrzędna "u" w w układzie sferycznym
+
 ## Sigma([f,l,h],jedn)
 ### Algorytm liczący długosć łuku południka.
 
@@ -187,38 +208,41 @@ XY1992 = [X1992,Y1992]: [list]
   
 # Informacje o funkcji zawartej w pliku czytanie_txt.py
   
-  
-Program przyjmuje plik txt tylko w takim formacie:
-    
-    3664940.500 1409153.590 5009571.170
-    3664940.510 1409153.580 5009571.167
-    3664940.520 1409153.570 5009571.167
-    3664940.530 1409153.560 5009571.168
-    3664940.520 1409153.590 5009571.170
-    3664940.514 1409153.584 5009571.166    
-    
+
+Program czytanie_txt przyjmuje plik txt tylko w takim formacie:
+        
+        3664940.500 1409153.590 5009571.170
+        3664940.510 1409153.580 5009571.167
+        3664940.520 1409153.570 5009571.167
+        3664940.530 1409153.560 5009571.168
+        3664940.520 1409153.590 5009571.170
+        3664940.514 1409153.584 5009571.166
+        
 A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.
+
+#### Parameters
+xyz0 = [x0,0y,z0]: [list]
+- x0 [float][metry] - współrzędna "x" w układzie orto-kartezjańskim, która definiuje środek układu
+- y0 [float][metry] - współrzędna "y" w układzie orto-kartezjańskim, która definiuje środek układu
+- x0 [float][metry] - współrzędna "z" w układzie orto-kartezjańskim, która definiuje środek układu
+l0 [int], południk osiowy
+jedn [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie] 
+model [str], Model elipsoidy,Wskaż elipsoidę z listy: wgs84 , wgs72 , grs80 , Krasowski , Międzynarodowa , Bessel , Clarke
+plik [str], Nazwa pliku o rozszerzeniu txt który wczytujemy.
+funkcja [str], Nazwa funkcji według której chcemy przeliczyć współrzędne między układami. Wybór funkcji: xyz2flh,flh2XYZ,xyz2neu,XgkYgk,XY2000,XY1992.
+#### Returns
+Plik o rozszerzeniu txt z przeliczonymi współrzędnymi
+   
+    Plik txt który zwraca funkcja wygląda następujaco:
+        
+        Funkcja: xyz2flh
+        [52.09727221841272, 21.03153333279777, 141.398586823605]
+        [52.09727216111064, 21.031533144230153, 141.39974895119667]
+        [52.097272120371336, 21.031532955662534, 141.4032782446593]
+        [52.097272085152944, 21.031532767094923, 141.40759659186006]
+        [52.09727208603574, 21.031533228061544, 141.41005479265004]
+        [52.09727211893464, 21.031533177762707, 141.40213536750525]
     
-    Parameters
-    ----------
-    
-    xyz0 : [list]
-        [metry] - współrzędne punktu w układzie orto-kartezjańskim
-    l0 : int
-        [stopnie dziesiętne] - południk osiowy
-    jedn : STR, optional
-        Jednostka wspolrzednych geodezyjnych. Domyslna jest "dec".
-        ["rad" - radiany, "gra" - grady, "dec" - stopnie]
-    model : 'nazwa modelu'
-        Model elipsoidy.
-    plik : 'nazwa pliku'
-        Nazwa pliku o rozszerzeniu txt który wczytujemy.
-    funkcja = 'nazwa funkcji',
-        Nazwa funkcji według której chcemy przeliczyć współrzędne między układami.
-    Returns
-    -------
-    plik o rozszerzeniu txt z przeliczonymi współrzędnymi
-    """
 # Opis działania pliku Aplikacja.py
 Plik ten został stworzony na potrzeby możliwości skorzystania z funkcji zawartych w plikach Projekt.py oraz czytanie_txt poprzez interpreter poleceń (cmd).
 ### Opis użycia cmd.
@@ -266,24 +290,5 @@ Reszta argumentów uzależniona jest od wyboru funckji.Pozostałe argumenty:
 - XY1992(-f,-l,-he,-jedn)
 - czytanie_txt(-x0,-y0,-z0,-l0,-m,-plik,-func2,-jedn,-plik_wych)
 
-Program czytanie_txt przyjmuje plik txt tylko w takim formacie:
-        
-        3664940.500 1409153.590 5009571.170
-        3664940.510 1409153.580 5009571.167
-        3664940.520 1409153.570 5009571.167
-        3664940.530 1409153.560 5009571.168
-        3664940.520 1409153.590 5009571.170
-        3664940.514 1409153.584 5009571.166
-        
-A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.
 
-Plik txt który zwraca funkcja wygląda następujaco:
-        
-        Funkcja: xyz2flh
-        [52.09727221841272, 21.03153333279777, 141.398586823605]
-        [52.09727216111064, 21.031533144230153, 141.39974895119667]
-        [52.097272120371336, 21.031532955662534, 141.4032782446593]
-        [52.097272085152944, 21.031532767094923, 141.40759659186006]
-        [52.09727208603574, 21.031533228061544, 141.41005479265004]
-        [52.09727211893464, 21.031533177762707, 141.40213536750525]
        
