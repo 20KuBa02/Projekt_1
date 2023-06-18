@@ -7,7 +7,7 @@
 ## Aby wszystkie programy zawarte w tym repozytorium mogły działać bez zarzutów trzeba mieć na swoim komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - Python - czyli język programowania wysokiego poziomu , w wersji nie młodszej niż 3.10
 - Spyder - wieloplatformowe zintegrowane środowisko programistyczne
-- biblioteka NumPy – otwartoźródłowa biblioteka programistyczna dla języka Python, dodająca obsługę dużych, wielowymiarowych tabel i macierzy
+- biblioteka NumPy – otwartoźródłowa biblioteka programistyczna dla języka Python, dodająca obsługę dużych, wielowymiarowych tabel i macierzy 
 - biblioteka math - otwartoźródłowa biblioteka programistyczna dla języka Python , obługuje większość zagadnień matematycznych
 - biblioteka argparse
 
