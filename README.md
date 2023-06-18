@@ -76,7 +76,7 @@ Funkcja pobiera tylko szerokość geodezyjną
 jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]      
 #### Raises
 NotImplementedError
-Jezeli podana jednostka jest poza zbiorem.
+- Jezeli podana jednostka jest poza zbiorem.
 #### Returns
 N : float [metry] - największy promień krzywizny
                           
@@ -91,7 +91,7 @@ xyz = [x,y,z]: [list]
 jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]
 #### Raises
 NotImplementedError
-Jezeli podana jednostka jest poza zbiorem.
+- Jezeli podana jednostka jest poza zbiorem.
 #### Returns
 flh = [f,l,h]: [list]
 - f[float][jedn] - szerokość geodezyjna
@@ -109,7 +109,7 @@ flh = [f,l,h]: [list]
 jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]   
 #### Raises
 NotImplementedError
-Jezeli podana jednostka jest poza zbiorem.
+- Jezeli podana jednostka jest poza zbiorem.
 #### Returns
 xyz = [x,y,z]: [list]
 - x [float][metry] - współrzędna "x" w układzie orto-kartezjańskim
@@ -117,7 +117,7 @@ xyz = [x,y,z]: [list]
 - x [float][metry] - współrzędna "z" w układzie orto-kartezjańskim
 
 ## Sigma([f,l,h],jedn)
-###Algorytm liczący długosć łuku południka.
+### Algorytm liczący długosć łuku południka.
 
 #### Parameters
 flh = [f,l,h]: [list]
@@ -127,88 +127,65 @@ flh = [f,l,h]: [list]
 jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]   
 #### Raises
 NotImplementedError
-Jezeli podana jednostka jest poza zbiorem.
+- Jezeli podana jednostka jest poza zbiorem.
 #### Returns
 sigma [float][metry] - długość łuku południka 
 
-
-XgkYgk
-       
-        Odwzorowanie Gaussa-Krügera – odwzorowanie kartograficzne pasów południkowych na pobocznicę walca stycznego
-        do południka środkowego (osiowego) każdego odwzorowywanego pasa.
-        Jest to wiernokątne, walcowe, poprzeczne odwzorowanie elipsoidy, w którym każdy pas odwzorowuje się oddzielnie.
+## XgkYgk([f,l,h],l0,jedn)
+###Odwzorowanie Gaussa-Krügera – odwzorowanie kartograficzne pasów południkowych na pobocznicę walca stycznego do południka środkowego (osiowego) każdego odwzorowywanego pasa. Jest to wiernokątne, walcowe, poprzeczne odwzorowanie elipsoidy, w którym każdy pas odwzorowuje się oddzielnie.
         
-        Parameters
-        ----------
-        flh : LIST
-            wspolrzedne geodezyjne phi, lam, h [metry]
-        l0 : int
-            [stopnie dziesiętne] - południk osiowy
-        jedn : STR, optional
-            Jednostka wspolrzednych geodezyjnych. Domyslna jest "dec".
-            ["rad" - radiany, "gra" - grady, "dec" - stopnie]
+#### Parameters
+flh = [f,l,h]: [list]
+- f[float][jedn] - szerokość geodezyjna
+- l[float][jedn] - długość geodezyjna
+- h[float][metry] - wysokość geometryczna(elipsoidalna)    
+jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]  
+- l0[int][jedn] - długość geodezyjna , południk osiowy
+#### Raises
+NotImplementedError
+- Jeżeli podana jednostka jest poza zbiorem.
+#### Returns
+XgkYgk = [Xgk,Ygk]: [list]
+- Xgk [float][metry] - współrzędna "x" w układzie współrzędnych płaskich Gaussa-Krügera
+- Ygk [float][metry] - współrzędna "y" w układzie współrzędnych płaskich Gaussa-Krügera 
 
-        Raises
-        ------
-        NotImplementedError
-            Jezeli podana jednostka jest poza zbiorem.
-        
-        Returns
-        -------
-        xygk : LIST
-            Wspolrzedne odwzorowania Gaussa-Krugera [metry]
-   
-PL2000         
-         Układ współrzędnych 2000 – układ współrzędnych płaskich prostokątnych zwany układem „2000”, 
-        powstały w wyniku zastosowania odwzorowania Gaussa-Krügera dla elipsoidy GRS 80 w czterech trzystopniowych strefach 
-        o południkach osiowych 15°E, 18°E, 21°E i 24°E, oznaczone odpowiednio numerami – 5, 6, 7 i 8.
+## PL2000([f,l,h],l0,jedn)        
+### Układ współrzędnych 2000 – układ współrzędnych płaskich prostokątnych zwany układem „2000”, powstały w wyniku zastosowania odwzorowania Gaussa-Krügera dla elipsoidy GRS 80 w czterech trzystopniowych strefach o południkach osiowych 15°E, 18°E, 21°E i 24°E, oznaczone odpowiednio numerami – 5, 6, 7 i 8.
        
-        Parameters
-        ----------
-        flh : LIST
-            wspolrzedne geodezyjne phi, lam, h [metry]
-        l0 : int
-            [stopnie dziesiętne] - południk osiowy
-        jedn : STR, optional
-            Jednostka wspolrzednych geodezyjnych. Domyslna jest "dec".
-            ["rad" - radiany, "gra" - grady, "dec" - stopnie]
-
-        Raises
-        ------
-        NotImplementedError
-            Jezeli podana jednostka jest poza zbiorem.
-
-        Returns
-        -------
-        xy2000 : LIST
-            Wspolrzedne w układzie PL-2000 [metry]
+#### Parameters
+flh = [f,l,h]: [list]
+- f[float][jedn] - szerokość geodezyjna
+- l[float][jedn] - długość geodezyjna
+- h[float][metry] - wysokość geometryczna(elipsoidalna)    
+jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]  
+- l0[int][jedn] - długość geodezyjna , południk osiowy
+#### Raises
+NotImplementedError
+- Jeżeli podana jednostka jest poza zbiorem.
+#### Returns
+XY2000 = [X2000,Y2000]: [list]
+- X2000 [float][metry] - współrzędna "x" w układzie współrzędnych płaskich PL2000
+- Y2000 [float][metry] - współrzędna "y" w układzie współrzędnych płaskich PL2000
        
-Pl1992       
-      Układ współrzędnych 1992 – układ współrzędnych płaskich prostokątnych oparty na odwzorowaniu Gaussa-Krügera dla elipsoidy GRS80 w jednej dziesięciostopniowej strefie.
-        Początkiem układu jest punkt przecięcia południka 19°E z obrazem równika.
+## PL1992([f,l,h],jedn)       
+### Układ współrzędnych 1992 – układ współrzędnych płaskich prostokątnych oparty na odwzorowaniu Gaussa-Krügera dla elipsoidy GRS80 w jednej dziesięciostopniowej strefie. Początkiem układu jest punkt przecięcia południka 19°E z obrazem równika.
         
-        Parameters
-        ----------
-        flh : LIST
-            wspolrzedne geodezyjne phi, lam, h [metry]
-        l0 : int
-            [stopnie dziesiętne] - południk osiowy
-        jedn : STR, optional
-            Jednostka wspolrzednych geodezyjnych. Domyslna jest "dec".
-            ["rad" - radiany, "gra" - grady, "dec" - stopnie]
-
-        Raises
-        ------
-        NotImplementedError
-            Jezeli podana jednostka jest poza zbiorem.
-
-        Returns
-        -------
-        xy1992 : LIST
-            Wspolrzedne w układzie PL-1992 [metry]
+#### Parameters
+flh = [f,l,h]: [list]
+- f[float][jedn] - szerokość geodezyjna
+- l[float][jedn] - długość geodezyjna
+- h[float][metry] - wysokość geometryczna(elipsoidalna)    
+jedn = [STR], Jednostka podawanych wartosci. Do wyboru:["rad" - radiany, "gra" - grady, "dec" - stopnie]  
+#### Raises
+NotImplementedError
+- Jeżeli podana jednostka jest poza zbiorem.
+#### Returns
+XY1992 = [X1992,Y1992]: [list]
+- X1992 [float][metry] - współrzędna "x" w układzie współrzędnych płaskich PL1992
+- Y1992 [float][metry] - współrzędna "y" w układzie współrzędnych płaskich PL1992
        
   
-  Informacje o funkcjach zawartych w pliku czytanie_txt.py
+# Informacje o funkcji zawartej w pliku czytanie_txt.py
   
   
   Program przyjmuje plik txt tylko w takim formacie:
