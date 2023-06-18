@@ -132,7 +132,7 @@ NotImplementedError
 sigma [float][metry] - długość łuku południka 
 
 ## XgkYgk([f,l,h],l0,jedn)
-###Odwzorowanie Gaussa-Krügera – odwzorowanie kartograficzne pasów południkowych na pobocznicę walca stycznego do południka środkowego (osiowego) każdego odwzorowywanego pasa. Jest to wiernokątne, walcowe, poprzeczne odwzorowanie elipsoidy, w którym każdy pas odwzorowuje się oddzielnie.
+### Odwzorowanie Gaussa-Krügera – odwzorowanie kartograficzne pasów południkowych na pobocznicę walca stycznego do południka środkowego (osiowego) każdego odwzorowywanego pasa. Jest to wiernokątne, walcowe, poprzeczne odwzorowanie elipsoidy, w którym każdy pas odwzorowuje się oddzielnie.
         
 #### Parameters
 flh = [f,l,h]: [list]
