@@ -28,7 +28,7 @@ komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - XgkYgk(self, flh, l0, jedn = 'dec'): Przekształca współrzędne geodezyjne (B, L, h) na współrzędne odwzorowania Gaussa-Krügera (Xgk, Ygk).
 
 # Charakterystyka poszczególnych funkcji zawartych w pliku Projekt1.py
-## __init__
+## "__init__"
 
  Parametry elipsoid:
  - a - duża półoś elipsoidy - promień równikowy
