@@ -66,10 +66,10 @@ Dostępne modele elipsoid:
         
 ## Np - Największy promień krzywizny na daną pozycję uzytkownika
      
-Parameters
+#### Parameters
 phi : float[stopnie dziesiętne] - szerokość geodezyjna
        
-Returns
+##### Returns
 N : float [metry] - największy promień krzywizny
                           
 ## xyz2flh
