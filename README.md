@@ -318,6 +318,14 @@ Wynik wywołania:
 
 [68543.662, -150594.646, 93209.062]
 
+### - flh2xyz
+
+C:\"ścieżka do folderu z plikami">python Aplikacja.py -func flh2XYZ -jedn rad -f 30.32 -l 50.54 -he 60.34 -m wgs84
+
+Wynik wywołania:
+
+[2814521.391, 792647.528, -5649467.37]
+
 
 
        
