@@ -34,8 +34,7 @@ komputerze zainstalowane następujące aplikacje,programy i biblioteki:
  - b - mała półoś elipsoidy - promień południkowy
  - flat - spłaszczenie
  - ecc2 - mimośród^2
-        + WGS84: https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84
-        + Inne powierzchnie odniesienia: http://uriasz.am.szczecin.pl/naw_bezp/elipsoida.html
+       
 Dostępne modele elipsoid:
 
  - wgs84:
