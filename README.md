@@ -267,6 +267,7 @@ Aby uruchomić poszczególne funckje zawarte w plikach Projekt1.py oraz czytanie
 ### Argumenty w pliku Aplikacja.py
 Pierwszy argument jaki należy wybrać to:
 - '-func',type = str, Wybór funkcji: xyz2flh,flh2XYZ,xyz2neu,XgkYgk,XY2000,XY1992,czytanie_txt
+
 Reszta argumentów uzależniona jest od wyboru funckji.Pozostałe argumenty:
 - '-func2',type = str, Jeżeli została wybrana funckja czytanie_txt. to trzeba wybierać funkcje:xyz2flh,flh2XYZ,xyz2neu,XgkYgk,XY2000,XY1992
 - '-m',type = str, Wskaż elipsoidę z listy: wgs84 , wgs72 , grs80 , Krasowski , Międzynarodowa , Bessel , Clarke
