@@ -300,7 +300,8 @@ Reszta argumentów uzależniona jest od wyboru funckji.Pozostałe argumenty:
 - czytanie_txt(-x0,-y0,-z0,-l0,-m,-plik,-func2,-jedn,-plik_wych)
 
 ### Przykłady wywołań funckji w cmd:
-1. xyz2flh
+### xyz2flh
+Wiersz poleceń:
 
 C:\ścieżka do folderu z plikami\>python Aplikacja.py -func xyz2flh -x 300000 -y 400000 -z 500000 -jedn gra -m wgs84
 
