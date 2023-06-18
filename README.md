@@ -59,6 +59,7 @@ Dostępne modele elipsoid:
  - Clarke:
  a = 6378249.145
  b = 6356514.870
+
 Żródło informacji na temat elipsoid:
  + WGS84: https://en.wikipedia.org/wiki/World_Geodetic_System#WGS84
  + Inne powierzchnie odniesienia: http://uriasz.am.szczecin.pl/naw_bezp/elipsoida.html
