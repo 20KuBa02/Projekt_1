@@ -267,11 +267,13 @@ Reszta argumentów uzależniona jest od wyboru funckji.Pozostałe argumenty:
 - czytanie_txt(-x0,-y0,-z0,-l0,-m,-plik,-func2,-jedn,-plik_wych)
 
 Program czytanie_txt przyjmuje plik txt tylko w takim formacie:
+        
         3664940.500 1409153.590 5009571.170
         3664940.510 1409153.580 5009571.167
         3664940.520 1409153.570 5009571.167
         3664940.530 1409153.560 5009571.168
         3664940.520 1409153.590 5009571.170
         3664940.514 1409153.584 5009571.166
+        
 A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.
 
