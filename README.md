@@ -351,7 +351,9 @@ Wynik wywołania:
 [275622.33064450044, 680758.1017989423]
 
 C:\"ścieżka do folderu z plikami">python Aplikacja.py -func czytanie_txt -jedn dec -x0 503532.32 -y0 354321.54 -z0 322460.34 -m wgs84 -func2 xyz2flh -l0 18 -plik wsp_inp.txt -plik_wych moje_wyniki
+
 Wynik wywołania:
+
 plik txt
       Funkcja: xyz2flh
       [52.09727221841272, 21.03153333279777, 141.398586823605]
