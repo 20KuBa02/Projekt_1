@@ -1,8 +1,8 @@
 # Program transforamcje
 Nasz program służący do transformacji współrzędnych pomiędzy układami składa się z trzech plików Python.
--Plik "Projekt1.py" zawiera parametry elipsoidy oraz dużą liczbę funkcji do transformacji między układami. 
--Plik "czytanie_txt.py" zawiera funkcję, która pobiera dane z pliku tekstowego (dane muszą być w odpowiednim formacie) i korzystając z funkcji z pliku "Projekt1.py" przekształca je do odpowiedniego układu. Współrzędne są zwracane w postaci pliku tekstowego. 
--Plik "Aplikacja.py" został stworzony, aby umożliwić korzystanie z wszystkich funkcji zawartych w pliku "Projekt1.py" oraz "czytanie_txt" poprzez okno konsoli (cmd)
+- Plik "Projekt1.py" zawiera parametry elipsoidy oraz dużą liczbę funkcji do transformacji między układami. 
+- Plik "czytanie_txt.py" zawiera funkcję, która pobiera dane z pliku tekstowego (dane muszą być w odpowiednim formacie) i korzystając z funkcji z pliku "Projekt1.py" przekształca je do odpowiedniego układu. Współrzędne są zwracane w postaci pliku tekstowego. 
+- Plik "Aplikacja.py" został stworzony, aby umożliwić korzystanie z wszystkich funkcji zawartych w pliku "Projekt1.py" oraz "czytanie_txt" poprzez okno konsoli (cmd)
 
 Informacje o funkcjach zawartych w pliku Projekt_1.py
 
