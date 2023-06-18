@@ -38,7 +38,7 @@ komputerze zainstalowane następujące aplikacje,programy i biblioteki:
         + Inne powierzchnie odniesienia: http://uriasz.am.szczecin.pl/naw_bezp/elipsoida.html
 Dostępne modele elipsoid:
 
-@ "wgs84":
+% "wgs84":
  a = 6378137.0 
  b = 6356752.31424518 
 "wgs72":
