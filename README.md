@@ -219,4 +219,13 @@ A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią teg
     -------
     plik o rozszerzeniu txt z przeliczonymi współrzędnymi
     """
-       
+# Opis działania pliku Aplikacja.py
+Plik ten został stworzony na potrzeby możliwości skorzystania z funkcji zawartych w plikach Projekt.py oraz czytanie_txt poprzez interpreter poleceń (cmd).
+### Opis użycia funkcji cmd.
+1. Otwórz wiersz poleceń (cmd) na swoim komputerze.
+2. Przejdź do katalogu, w którym znajduje się plik Python, którego chcesz uruchomić. Możesz użyć polecenia cd (change directory), aby nawigować po systemie plików. Na przykład, jeśli plik znajduje się na pulpicie, wpisz: cd C:\Users\TwojaNazwaUżytkownika\Pulpit
+3. Po wejściu do odpowiedniego katalogu, wpisz polecenie python nazwa_pliku.py, gdzie "nazwa_pliku.py" to nazwa twojego pliku Python. Na przykład, jeśli twój plik nazywa się "Aplikacja.py", wpisz: python Aplikacja.py
+Jeśli używasz Pythona w wersji 3.x, możliwe, że będziesz musiał użyć polecenia python3 zamiast python.
+4. Naciśnij klawisz Enter, aby uruchomić plik Python. W wyniku tego powinien zostać wykonany kod zawarty w pliku, a ewentualne wyniki lub wyjście zostaną wyświetlone w konsoli.
+
+Upewnij się, że masz zainstalowany interpreter Python na swoim komputerze i że ścieżka do interpretera jest dodana do zmiennej środowiskowej PATH. W przeciwnym razie komenda python nie zostanie rozpoznana w wierszu poleceń.
