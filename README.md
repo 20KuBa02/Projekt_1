@@ -99,7 +99,7 @@ flh = [f,l,h]: [list]
 - h[float][metry] - wysokość geometryczna(elipsoidalna)
   
 ## flh2XYZ([f,l,h],jedn)
-###Funkcja transformujaca współrzędne geodezyjne długość szerokość i wysokośc elipsoidalna na współrzędne ortokartezjańskie
+### Funkcja transformujaca współrzędne geodezyjne długość szerokość i wysokośc elipsoidalna na współrzędne ortokartezjańskie
         
 #### Parameters
 flh = [f,l,h]: [list]
