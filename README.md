@@ -4,8 +4,6 @@ Nasz program służący do transformacji współrzędnych pomiędzy układami sk
 - Plik "czytanie_txt.py" zawiera funkcję, która pobiera dane z pliku tekstowego (dane muszą być w odpowiednim formacie) i korzystając z funkcji z pliku "Projekt1.py" przekształca je do odpowiedniego układu. Współrzędne są zwracane w postaci pliku tekstowego. 
 - Plik "Aplikacja.py" został stworzony, aby umożliwić korzystanie z wszystkich funkcji zawartych w pliku "Projekt1.py" oraz "czytanie_txt" poprzez okno konsoli (cmd)
 
-Informacje o funkcjach zawartych w pliku Projekt_1.py
-
 Aby wszystkie programy zawarte w tym repozytorium mogły działać bez zarzutów trzeba mieć na swoim
 komputerze zainstalowane następujące aplikacje,programy i biblioteki:
 - Python - czyli język programowania wysokiego poziomu , w wersji nie młodszej niż 3.10
