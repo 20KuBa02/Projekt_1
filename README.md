@@ -188,7 +188,7 @@ XY1992 = [X1992,Y1992]: [list]
 # Informacje o funkcji zawartej w pliku czytanie_txt.py
   
   
-  Program przyjmuje plik txt tylko w takim formacie:
+Program przyjmuje plik txt tylko w takim formacie:
     
     3664940.500 1409153.590 5009571.170
     3664940.510 1409153.580 5009571.167
@@ -197,9 +197,7 @@ XY1992 = [X1992,Y1992]: [list]
     3664940.520 1409153.590 5009571.170
     3664940.514 1409153.584 5009571.166    
     
-    A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest
-    to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy 
-    wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.
+A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.
     
     Parameters
     ----------
