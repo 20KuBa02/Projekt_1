@@ -233,27 +233,44 @@ Upewnij się, że masz zainstalowany interpreter Python na swoim komputerze i ż
 ### Wywołanie funckji w cmd.
 Aby uruchomić poszczególne funckje zawarte w plikach Projekt1.py oraz czytanie_txt.py nazleży po komendzie "python Aplakcja.py" dopisać poszczególne argumenty przypisane do danych funkcji z plików.
 ### Argumenty w pliku Aplikacja.py
-- '-func',type = str, Wybierz funkcję:xyz2flh,flh2XYZ,xyz2neu,XgkYgk,XY2000,XY1992,czytanie_txt'
-- '-func2',type = str, Używane jesli została wybrana funckja czytanie_txt. Wybierz funkcje:xyz2flh,flh2XYZ,xyz2neu,XgkYgk,XY2000,XY1992
+Pierwszy argument jaki należy wybrać to:
+- '-func',type = str, Wybór funkcji: xyz2flh,flh2XYZ,xyz2neu,XgkYgk,XY2000,XY1992,czytanie_txt
+Reszta argumentów uzależniona jest od wyboru funckji.Pozostałe argumenty:
+- '-func2',type = str, Jeżeli została wybrana funckja czytanie_txt. to trzeba wybierać funkcje:xyz2flh,flh2XYZ,xyz2neu,XgkYgk,XY2000,XY1992
 - '-m',type = str, Wskaż elipsoidę z listy: wgs84 , wgs72 , grs80 , Krasowski , Międzynarodowa , Bessel , Clarke
-- '-x',type = float, Zawsze podawane w [metry] wsp. x układu kartezjańskiego
-- '-y',type = float, Zawsze podawane w [metry] wsp. y układu kartezjańskiego
-- '-z',type = float, Zawsze podawane w [metry] wsp. z układu kartezjańskiego
-- '-f',type = float, Zawsze okreslona przez argument -func ,szerokość geodezyjna
-- '-l',type = float, Zawsze okreslona przez argument -func ,długość geodezyjna
-- '-l0',type = float, Zawsze okreslona przez argument -func ,południk zerowy
-- '-he',type = float, Zawsze podawane w [metry] wysokosc elipsoidalna
+- '-x',type = float, Zawsze podawane w [metry] współrzędna "x" w układzie orto-kartezjańskim
+- '-y',type = float, Zawsze podawane w [metry] współrzędna "y" w układzie orto-kartezjańskim
+- '-z',type = float, Zawsze podawane w [metry] współrzędna "z" w układzie orto-kartezjańskim
 - '-jedn',type = str, 'Wskaż jednsotkę z listy : rad,dec,gra. Dla funkcji xyz2flh jest to jednostka w której mają być zwrócone współrzędne, a dla funkcji flh2XYZ,XgkYgk,XY2000,XY1992 jednostki w jakich wchodzą współrzędne. 
+- '-f',type = float, Zawsze okreslona przez argument -jedn ,szerokość geodezyjna
+- '-l',type = float, Zawsze okreslona przez argument -jedn ,długość geodezyjna
+- '-l0',type = float, Zawsze okreslona przez argument -jedn ,południk zerowy
+- '-he',type = float, Zawsze podawane w [metry] wysokość elipsoidalna
 - '-x0',type = float, Zawsze podawane w [metry] wsp. x0 srodka układu kartezjańskiego
 - '-y0',type = float, Zawsze podawane w [metry] wsp. y0 srodka układu kartezjańskiego
 - '-z0',type = float, Zawsze podawane w [metry] wsp. z0 srodka kartezjańskiego')
 - '-xr',type = float, Zawsze podawane w [metry] wsp. x referencyjna układu układu kartezjańskiego
 - '-yr',type = float, Zawsze podawane w [metry] wsp. y referencyjna układu układu kartezjańskiego
-- '-zr',type = float, Zawsze podawane w [metry]wsp. z referencyjna układu kartezjańskiego
+- '-zr',type = float, Zawsze podawane w [metry] wsp. z referencyjna układu kartezjańskiego
 - '-plik',type = str, Nazwa pliku txt który chcemy użyć do funkcji czytanie_txt
 - '-plik_wych',type = str, Nazwa pliku txt który będzie plikem , w którym zapiszą się nam nasze wyniki
 
 
 
-parser.add_argument('-pomoc', type = str ,help = 'Argumenty przyjmowane przez poszczególne funkcje: xyz2flh(-x,-y,-z,-jedn),flh2XYZ(-f,-l,-he,-jedn),xyz2neu(-x0,-y0,-z0,-xr,-yr,-zr),XgkYgk(-f,-l,-he,-l0,-jedn),XY2000(-f,-l,-he,-l0,-jedn),XY1992(-f,-l,-he,-jedn),czytanie_txt(-x0,-y0,-z0,-l0,-m,-plik,-func2,-jedn,-plik_wych)      Program czytanie_txt przyjmuje plik txt tylko w takim formacie:3664940.500 1409153.590 5009571.170\\3664940.510 1409153.580 5009571.167\\3664940.520 1409153.570 5009571.167\\3664940.530 1409153.560 5009571.168\\3664940.520 1409153.590 5009571.170\\3664940.514 1409153.584 5009571.166\\A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.')
-args = parser.parse_args()
+### Argumenty przyjmowane przez poszczególne funkcje: 
+- xyz2flh(-x,-y,-z,-jedn)
+- flh2XYZ(-f,-l,-he,-jedn)
+- xyz2neu(-x0,-y0,-z0,-xr,-yr,-zr)
+- XgkYgk(-f,-l,-he,-l0,-jedn)
+- XY2000(-f,-l,-he,-l0,-jedn)
+- XY1992(-f,-l,-he,-jedn)
+- czytanie_txt(-x0,-y0,-z0,-l0,-m,-plik,-func2,-jedn,-plik_wych)
+Program czytanie_txt przyjmuje plik txt tylko w takim formacie:
+        3664940.500 1409153.590 5009571.170
+        3664940.510 1409153.580 5009571.167
+        3664940.520 1409153.570 5009571.167
+        3664940.530 1409153.560 5009571.168
+        3664940.520 1409153.590 5009571.170
+        3664940.514 1409153.584 5009571.166
+A następnie przelicza do układu który poda użytkownik.Niedoskonałoscią tego programu jest to że pobiera argumenty dla wszystkich funkcji.Lecz to nie jest aż tak wileki problem, wystarczy wpisać losowe wartosci, nie będą one miały wplywu na wynik końcowy.
+
