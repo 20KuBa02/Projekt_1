@@ -61,7 +61,7 @@ class Transformacje:
         if jedn == "rad":
             pass
         elif jedn == "dec":
-            phi = np.degrees(phi)
+             phi = np.degrees(phi)
         elif jedn == "gra":
             flh = phi*m.pi/200
         else:
